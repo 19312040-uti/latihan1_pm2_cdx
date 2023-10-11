@@ -19,12 +19,8 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text('halo ios!'),
-            Text('halo ios!'),
-            Text('halo ios!'),
-            Text('halo ios!'),
-            Text('halo ios!'),
-            Text('halo ios!'),
+            for (var i = 0; i < 6; i++)
+            Text("Pagi Dunia!"),
             Row(
               children: [
                 for (var i = 0; i < 6; i++)
