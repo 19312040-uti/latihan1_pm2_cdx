@@ -5,62 +5,137 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({ Key? key }) : super(key: key);
 
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Latihan 1',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Latihan 1', style: TextStyle(color: Colors.black)),
-          backgroundColor: Colors.cyan,
-        ),
-        body: Column(
+      home: formInput()
+    );
+  }
+}
+
+class formInput extends StatefulWidget {
+  const formInput({super.key});
+
+  @override
+  State<formInput> createState() => _formInputState();
+}
+
+class _formInputState extends State<formInput> {
+ 
+  String? _jk;
+  void pilihJk(String value) {
+    setState(() {
+      _jk = value;
+    });
+  }
+
+  List<String> agama = [
+    "Islam",
+    "Kristen Katholik",
+    "Kristen Protestan",
+    "Hindu",
+    "Buddha",
+    "Lainnya"
+  ];
+
+  String _agama = "Islam";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.list),
+        title: Text("Input biodata"),
+        backgroundColor: Colors.teal,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(10),
+        child: ListView(
           children: [
-            for (var i = 0; i < 6; i++)
-            Text("Pagi Dunia!"),
-            Row(
-              children: [
-                for (var i = 0; i < 6; i++)
-                Text('pagi magna! ')
-              ],
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Nama Lengkap",
+                labelText: "Nama Lengkap",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                )
+              ),
             ),
-            Container(
-              color: Colors.blue,
-              height: 50,
-              width: 500,
+            SizedBox(
+              height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: 
-                [for (var i = 0; i < 5; i++) Container(
-                color: Colors.red,
-                height: 30,
-                width: 30,
-                margin: EdgeInsets.all(10),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: "Password",
+                labelText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [for (var i = 0; i < 5; i++)
-              Container(
-                height: 30,
-                width: 30,
-                margin: EdgeInsets.all(10),
-                decoration:
-                  new BoxDecoration(
-                    color: Colors.cyan,
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ],
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
+              maxLength: 100,
+              maxLines: 3,
+              decoration: InputDecoration(
+                hintText: "Alamat",
+                labelText: "Alamat",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                )
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            RadioListTile(
+              value: "Laki-Laki", 
+              groupValue: _jk, 
+              title: Text("Laki-Laki"),
+              onChanged: (String? value) {
+                pilihJk(value!);
+              },
+              activeColor: Colors.teal,
+              subtitle: Text("Pilih ini laki-laki"),
+            ),
+            RadioListTile(
+              value: "Perempuan", 
+              groupValue: _jk, 
+              title: Text("Perempuan"),
+              onChanged: (String? value) {
+                pilihJk(value!);
+              },
+              activeColor: Colors.teal,
+              subtitle: Text("Pilih ini perempuan"),
+            ),
+            DropdownButton(
+              value: _agama,
+              items: agama.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  _agama = newValue!;
+                });
+              },
             )
           ],
         ),
       ),
     );
   }
-}
+} 
