@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,17 +13,17 @@ class MyApp extends StatelessWidget {
       title: 'Latihan 1',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Latihan 1', style: TextStyle(color: Colors.black)),
+          title: const Text('Latihan 1', style: TextStyle(color: Colors.black)),
           backgroundColor: Colors.cyan,
         ),
         body: Column(
           children: [
             for (var i = 0; i < 6; i++)
-            Text("Pagi Dunia!"),
+            const Text("Pagi Dunia!"),
             Row(
               children: [
                 for (var i = 0; i < 6; i++)
-                Text('pagi magna! ')
+                const Text('pagi magna! ')
               ],
             ),
             Container(
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
                 color: Colors.red,
                 height: 30,
                 width: 30,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 ),
               ],
             ),
@@ -49,9 +48,9 @@ class MyApp extends StatelessWidget {
               Container(
                 height: 30,
                 width: 30,
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 decoration:
-                  new BoxDecoration(
+                  const BoxDecoration(
                     color: Colors.cyan,
                     shape: BoxShape.circle,
                   ),

@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "505999934240",
+    "firebase_url": "https://bcdx-19312040-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bcdx-19312040",
+    "storage_bucket": "bcdx-19312040.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505999934240:android:3f9ba125149e86d4fa4d45",
+        "android_client_info": {
+          "package_name": "com.alchrisalfara.bcdx_19312040"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADYRDJgHE8RewZMZtWrzh4b1PqthV2oi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505999934240:android:0b917563f48dd581fa4d45",
+        "android_client_info": {
+          "package_name": "com.example.latihan1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADYRDJgHE8RewZMZtWrzh4b1PqthV2oi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

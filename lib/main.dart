@@ -1,13 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({ super.key });
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -16,7 +18,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: formInput()
     );
   }
@@ -50,6 +52,7 @@ class _formInputState extends State<formInput> {
 
   String _agama = "Islam";
 
+  @override
   void dispose() {
     var_tanggal.dispose();
     super.dispose();
@@ -65,13 +68,13 @@ class _formInputState extends State<formInput> {
     final DateTime? picked = await showDatePicker(
       context: context, 
       initialDate: selectedDate, 
-      firstDate: DateTime(1980), 
-      lastDate: DateTime(2101),
+      firstDate: DateTime(DateTime.now().year - 100), 
+      lastDate: DateTime(DateTime.now().year + 100),
       builder: (context, child) {
         return Theme(data: ThemeData.light().copyWith(
           primaryColor: Colors.teal,
           hintColor: Colors.teal,
-          colorScheme: ColorScheme.light(primary: Colors.teal)
+          colorScheme: const ColorScheme.light(primary: Colors.teal)
         ), 
         child: child!
         );
@@ -89,12 +92,12 @@ class _formInputState extends State<formInput> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.list),
-        title: Text("Input biodata"),
+        leading: const Icon(Icons.list),
+        title: const Text("Input biodata"),
         backgroundColor: Colors.teal,
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListView(
           children: [
             TextField(
@@ -106,7 +109,7 @@ class _formInputState extends State<formInput> {
                 )
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -119,7 +122,7 @@ class _formInputState extends State<formInput> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -133,28 +136,28 @@ class _formInputState extends State<formInput> {
                 )
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             RadioListTile(
               value: "Laki-Laki", 
               groupValue: _jk, 
-              title: Text("Laki-Laki"),
+              title: const Text("Laki-Laki"),
               onChanged: (String? value) {
                 pilihJk(value!);
               },
               activeColor: Colors.teal,
-              subtitle: Text("Pilih ini laki-laki"),
+              subtitle: const Text("Pilih ini laki-laki"),
             ),
             RadioListTile(
               value: "Perempuan", 
               groupValue: _jk, 
-              title: Text("Perempuan"),
+              title: const Text("Perempuan"),
               onChanged: (String? value) {
                 pilihJk(value!);
               },
               activeColor: Colors.teal,
-              subtitle: Text("Pilih ini perempuan"),
+              subtitle: const Text("Pilih ini perempuan"),
             ),
             DropdownButton(
               value: _agama,
@@ -170,7 +173,7 @@ class _formInputState extends State<formInput> {
                 });
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
@@ -184,7 +187,7 @@ class _formInputState extends State<formInput> {
                 ),
                 suffixIcon: IconButton(
                   onPressed: () => _selectedDate(context), 
-                  icon: Icon(Icons.calendar_today)
+                  icon: const Icon(Icons.calendar_today)
                 )
               ),
             ),
